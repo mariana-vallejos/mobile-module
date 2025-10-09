@@ -1,4 +1,4 @@
-import { Dimensions, Text, View } from 'react-native'
+import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from './style'
@@ -23,6 +23,8 @@ const Movies = () => {
             animated: true,
         });
     };
+
+    const onPress = () => console.log('touched');
 
     useEffect(() => {
         getPopularMovies().then((data) => {
@@ -52,6 +54,15 @@ const Movies = () => {
                         </View>
                     )}
                 />
+            </View>
+            <View style={styles.buttonsContainer}>
+                <TouchableOpacity style={styles.buttonSecondary} onPress={onPress}>
+                    <Text style={styles.buttonTextSecondary}>+ Wishlist</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonPrimary} onPress={onPress}>
+                    <Text style={styles.buttonTextPrimary}>Details</Text>
+                </TouchableOpacity>
+
             </View>
         </SafeAreaView>
     )

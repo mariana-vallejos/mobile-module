@@ -26,4 +26,33 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: '#666',
   },
+  buttonsContainer: {
+    flexDirection: 'row',
+  },
+  buttonPrimary: {
+    flex: 1,
+    backgroundColor: '#F2C94C',
+    alignItems: 'center',
+    padding: 20,
+    margin: 10,
+    borderRadius: 10,
+  },
+  buttonTextPrimary: {
+    color: '#333333',
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+  buttonSecondary: {
+    flex: 1,
+    backgroundColor: '#404040',
+    alignItems: 'center',
+    padding: 20,
+    margin: 10,
+    borderRadius: 10,
+  },
+  buttonTextSecondary: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
 });
