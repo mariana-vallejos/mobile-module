@@ -26,8 +26,13 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: '#666',
   },
+  carouselContainer: {
+    position: 'relative',
+  },
   buttonsContainer: {
     flexDirection: 'row',
+    position: 'absolute',
+    bottom: 20,
   },
   buttonPrimary: {
     flex: 1,

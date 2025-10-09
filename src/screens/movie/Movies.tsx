@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from './style'
 import { getPopularMovies } from '../../service/TMDBService'
-import Carousel, { ICarouselInstance } from 'react-native-reanimated-carousel'
+import Carousel, { ICarouselInstance, Pagination } from 'react-native-reanimated-carousel'
 import { useSharedValue } from 'react-native-reanimated'
 
 const data = [...new Array(6).keys()];
@@ -35,7 +35,7 @@ const Movies = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Text>Movies</Text>
-            <View>
+            <View style={styles.carouselContainer}>
                 <Carousel
                     ref={ref}
                     width={width}
@@ -54,15 +54,21 @@ const Movies = () => {
                         </View>
                     )}
                 />
-            </View>
-            <View style={styles.buttonsContainer}>
-                <TouchableOpacity style={styles.buttonSecondary} onPress={onPress}>
-                    <Text style={styles.buttonTextSecondary}>+ Wishlist</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonPrimary} onPress={onPress}>
-                    <Text style={styles.buttonTextPrimary}>Details</Text>
-                </TouchableOpacity>
-
+                <Pagination.Basic
+                    progress={progress}
+                    data={data}
+                    dotStyle={{ backgroundColor: "rgba(0,0,0,0.2)", borderRadius: 50 }}
+                    containerStyle={{ gap: 5, marginTop: 10 }}
+                    onPress={onPressPagination}
+                />
+                <View style={styles.buttonsContainer}>
+                    <TouchableOpacity style={styles.buttonSecondary} onPress={onPress}>
+                        <Text style={styles.buttonTextSecondary}>+ Wishlist</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonPrimary} onPress={onPress}>
+                        <Text style={styles.buttonTextPrimary}>Details</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </SafeAreaView>
     )
