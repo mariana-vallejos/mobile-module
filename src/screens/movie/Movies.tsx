@@ -1,15 +1,24 @@
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from './style'
 import { getPopularMovies } from '../../service/TMDBService'
 import Carousel, { ICarouselInstance, Pagination } from 'react-native-reanimated-carousel'
 import { useSharedValue } from 'react-native-reanimated'
+import { MovieCard } from './components/MovieCard'
 
-const data = [...new Array(6).keys()];
-const width = Dimensions.get("window").width;
+ const {width, height} = Dimensions.get("window");
+
+ interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+  release_date: string;
+}
 
 const Movies = () => {
+    const [movies, setMovies] = useState<Movie[]>([])
     const ref = React.useRef<ICarouselInstance>(null);
     const progress = useSharedValue<number>(0);
 
@@ -28,35 +37,26 @@ const Movies = () => {
 
     useEffect(() => {
         getPopularMovies().then((data) => {
-            console.log('Popular movies:', data)
+            setMovies(data)
         })
     }, [])
 
     return (
-        <SafeAreaView style={styles.container}>
-            <Text>Movies</Text>
+        <View style={styles.container}>
             <View style={styles.carouselContainer}>
                 <Carousel
                     ref={ref}
                     width={width}
-                    height={width / 2}
-                    data={data}
+                    height={height * 0.60}
+                    data={movies}
                     onProgressChange={progress}
-                    renderItem={({ index }) => (
-                        <View
-                            style={{
-                                flex: 1,
-                                borderWidth: 1,
-                                justifyContent: "center",
-                            }}
-                        >
-                            <Text style={{ textAlign: "center", fontSize: 30 }}>{index}</Text>
-                        </View>
+                    renderItem={({ item }) => (
+                        <MovieCard posterPath={item.poster_path}/>
                     )}
                 />
                 <Pagination.Basic
                     progress={progress}
-                    data={data}
+                    data={movies}
                     dotStyle={{ backgroundColor: "rgba(0,0,0,0.2)", borderRadius: 50 }}
                     containerStyle={{ gap: 5, marginTop: 10 }}
                     onPress={onPressPagination}
@@ -70,7 +70,7 @@ const Movies = () => {
                     </TouchableOpacity>
                 </View>
             </View>
-        </SafeAreaView>
+        </View>
     )
 }
 
