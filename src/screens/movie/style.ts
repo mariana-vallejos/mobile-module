@@ -32,32 +32,8 @@ export const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 20,
-  },
-  buttonPrimary: {
-    flex: 1,
-    backgroundColor: '#F2C94C',
-    alignItems: 'center',
-    padding: 20,
-    margin: 10,
-    borderRadius: 10,
-  },
-  buttonTextPrimary: {
-    color: '#333333',
-    fontSize: 16,
-    fontWeight: 'bold'
-  },
-  buttonSecondary: {
-    flex: 1,
-    backgroundColor: '#404040',
-    alignItems: 'center',
-    padding: 20,
-    margin: 10,
-    borderRadius: 10,
-  },
-  buttonTextSecondary: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold'
+    bottom: 30,
+    gap: 10,
+    marginInline: 10,
   },
 });

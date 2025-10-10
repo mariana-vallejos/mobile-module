@@ -6,6 +6,8 @@ import { getPopularMovies } from '../../service/TMDBService'
 import Carousel, { ICarouselInstance, Pagination } from 'react-native-reanimated-carousel'
 import { useSharedValue } from 'react-native-reanimated'
 import { MovieCard } from './components/MovieCard'
+import { ButtonComponent } from '../../components/atoms/buttonComponent/ButtonComponent'
+import { colors } from '../../constants/colors'
 
  const {width, height} = Dimensions.get("window");
 
@@ -37,7 +39,8 @@ const Movies = () => {
 
     useEffect(() => {
         getPopularMovies().then((data) => {
-            setMovies(data)
+            console.log(data)
+            setMovies(data.slice(0, 5))
         })
     }, [])
 
@@ -58,16 +61,13 @@ const Movies = () => {
                     progress={progress}
                     data={movies}
                     dotStyle={{ backgroundColor: "rgba(0,0,0,0.2)", borderRadius: 50 }}
-                    containerStyle={{ gap: 5, marginTop: 10 }}
+                    activeDotStyle={{ backgroundColor: colors.primary}}
+                    containerStyle={{ gap: 10, marginTop: 10 }}
                     onPress={onPressPagination}
                 />
                 <View style={styles.buttonsContainer}>
-                    <TouchableOpacity style={styles.buttonSecondary} onPress={onPress}>
-                        <Text style={styles.buttonTextSecondary}>+ Wishlist</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonPrimary} onPress={onPress}>
-                        <Text style={styles.buttonTextPrimary}>Details</Text>
-                    </TouchableOpacity>
+                    <ButtonComponent variant='secondary' title='+ Wishlist' onPress={onPress}/>
+                    <ButtonComponent variant='primary' title='Details' onPress={onPress}/>
                 </View>
             </View>
         </View>

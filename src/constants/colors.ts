@@ -14,7 +14,7 @@ export const colors = {
 
   // Button colors
   buttonPrimary: '#FFC107',
-  buttonSecondary: 'rgba(255, 255, 255, 0.2)',
+  buttonSecondary: 'rgba(83, 83, 83, 0.9)',
 
   // Other colors
   white: '#FFFFFF',
