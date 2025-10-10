@@ -1,7 +1,7 @@
 import { Text, TextStyle } from 'react-native';
 import { styles } from './styles';
 
-interface DATextProps {
+interface TextCompProps {
   children: string | React.ReactNode;
   variant?: 'title' | 'subtitle' | 'body';
   style?: TextStyle;
@@ -13,7 +13,7 @@ export const TextComp = ({
   variant = 'body',
   style,
   numberOfLines
-}: DATextProps) => {
+}: TextCompProps) => {
   const getVariantStyle = () => {
     switch (variant) {
       case 'title':

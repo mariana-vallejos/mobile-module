@@ -1,39 +1,54 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-  },
-  headerText: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loadingText: {
-    marginTop: 12,
-    fontSize: 16,
-    color: '#666',
-  },
-  carouselContainer: {
-    position: 'relative',
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 30,
-    gap: 10,
-    marginInline: 10,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+    header: {
+        backgroundColor: '#007AFF',
+        paddingVertical: 16,
+        paddingHorizontal: 20,
+        alignItems: 'center',
+    },
+    headerText: {
+        color: '#fff',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    loadingText: {
+        marginTop: 12,
+        fontSize: 16,
+        color: '#666',
+    },
+    carouselContainer: {
+        position: 'relative',
+    },
+    carouselBottomContainer: {
+        width: '100%',
+        position: 'absolute',
+        bottom: 40,
+    },
+    carouselBottomText: {
+        flexDirection: 'row',
+        gap: 30, justifyContent: 'center',
+        zIndex: 1,
+        paddingBottom: 20
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+        gap: 10,
+        paddingInline: 10
+    },
+    gradient: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        zIndex: 1,
+    },
 });
