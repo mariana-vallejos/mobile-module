@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#202020ff',
     },
     header: {
         backgroundColor: '#007AFF',
@@ -45,10 +45,10 @@ export const styles = StyleSheet.create({
         gap: 10,
         paddingInline: 10
     },
-    gradient: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        zIndex: 1,
+    headerMovie: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingInline: 25,
+        paddingTop: 30,
     },
 });
